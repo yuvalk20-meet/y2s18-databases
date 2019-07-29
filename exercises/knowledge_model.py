@@ -15,7 +15,29 @@ class Knowledge(Base):
 	# an integer, representing your rating of the article.
 
 	__tablename__ = 'Knowledge'
-   article_id = Column(Integer, primary_key=True)
-   name = Column(String)
-   year = Column(Integer)
-   url = Column(String)
+	article_id = Column(Integer, primary_key=True)
+	topic = Column(String)
+	rating = Column(Integer)
+	url = Column(String)
+
+	def __repr__(self):
+		stars = self.rating * "*"
+		
+		return ("I have read the article {}\n"
+   				"I rate it {}\n"
+   				"Would you like to read it too? \n"
+   				"{}").format(self.topic, stars, self.url)
+
+
+	
+
+# x = Knowledge()
+# x.article_id = 0
+# x.topic = "Tomato"
+# x.url = "https://en.wikipedia.org/wiki/Tomato"
+# x.rating = 3
+
+
+
+
+		
